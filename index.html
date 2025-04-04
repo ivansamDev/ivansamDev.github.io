@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CUSTOME Editor by SAMUCATO</title>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="favicon-16x16.png" />
+		<link rel="manifest" href="manifest.json">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="description" content="Escoge el diseño que mas te guste, el color, la talla y haz tu pedido ahora mismo.">
+		<link href="assets/css/styles.css" rel="stylesheet">
+		<link href="assets/css/palette-color-picker.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+		<div id="dvLoading"></div>
+		<div id="header">
+			 CUSTOME EDITOR SAMUCATO
+			<h1>Escoge el diseño que mas te guste</h1>
+			<p>El color, la talla y haz tu pedido ahora mismo</p>
+		</div>
+		<div id="world">
+			<div id="world-load"></div>
+		</div>
+		<div id="custome-editor">
+			<p class="light-custome-editor">ELige el tipo y el diseño.</p>
+			<div id="type-shirt">
+				<span data-t="man" onclick="changeTshirtType('t-shirts-low-poly','t-shirt1',event,'man')" class="active-model">HOMBRE</span>
+				<span data-t="women" onclick="changeTshirtType('t-shirts-w','t-shirts-wd',event,'women')">MUJER</span>
+				<!-- <span data-t="couples" onclick="changeTshirtType(currentNameModel,currentNameModelD,event,'couples')">PAREJA</span> -->
+				<!--<span data-t="family" >F</span> -->
+			</div>
+			<div class="content-designs">
+				<ul class="designs">
+					<li class="active" data-dn="Design-01" onclick="changeDesign(event)">Design 01</li>
+					<li data-dn="Design-02" onclick="changeDesign(event)">Design 02 </li>
+					<li data-dn="Design-03" onclick="changeDesign(event)">Design 03</li>
+					<li data-dn="Design-04" onclick="changeDesign(event)">Design 04</li>
+					<li data-dn="Design-05" onclick="changeDesign(event)">Design 05</li>
+					<li data-dn="Design-06" onclick="changeDesign(event)">Design 06</li>
+					<li data-dn="Design-07" onclick="changeDesign(event)">Design 07</li>
+					<li data-dn="Design-08" onclick="changeDesign(event)">Design 08</li>
+					<li data-dn="Design-09" onclick="changeDesign(event)">Design 09</li>
+					<li data-dn="Design-10" onclick="changeDesign(event)">Design 10</li>
+					<li data-dn="Design-11" onclick="changeDesign(event)">Design 11</li>
+					<li data-dn="Design-12" onclick="changeDesign(event)">Design 12</li>
+					<li data-dn="Design-13" onclick="changeDesign(event)">Design 13</li>
+					<li data-dn="Design-14" onclick="changeDesign(event)">Design 14</li>
+					<li data-dn="Design-15" onclick="changeDesign(event)">Design 15</li>
+					<li data-dn="Design-16" onclick="changeDesign(event)">Design 16</li>
+					<li data-dn="Design-17" onclick="changeDesign(event)">Design 17</li>
+				</ul>
+			</div>
+			<div id="vinil-color">
+				<span data-vnl="black" class="color-change-b active-vinil">NEGRO</span>
+				<span data-vnl="white" class="color-change-w">BLANCO</span>
+				<span data-vnl="golden" class="color-change-g">DORADO</span>
+			</div>
+			<div class="terms">
+				<ul>
+					<li id="web">
+						<i class="fas fa-user-circle"></i>
+						<a href="https://web.whatsapp.com/send?l=cb&phone=573195984837&text=Hola%20he%20realizado%20el%20pedido%20a%20nombre%20de%20" target="_blank"> 
+						 Contactar a Asesor</a>
+					</li>
+					<li id="mobile">
+						<i class="fas fa-user-circle"></i>
+						<a href="https://api.whatsapp.com/send?phone=573195984837&text=Hola%20he%20realizado%20el%20pedido%20a%20nombre%20de%20">Contactar a Asesor</a>
+					</li>
+					<li>
+						<i class="fas fa-money-bill"></i>
+						<a href="#modal-metodos">Métodos y formas de pago</a>
+					</li>
+					<li>
+						<i class="fas fa-cloud-upload-alt"></i>
+						<a href="#modal-l">Personalizar</a>
+					</li>
+					<li>
+						<i class="fas fa-file-alt"></i>
+						<a href="#">Terminos y condiciones</a>
+					</li>
+					<li>
+						<i class="fas fa-question-circle"></i>
+						<a href="#">FAQS</a>
+					</li>
+				</ul>	
+			</div>
+		</div>
+		<div class="order">
+			<span class="option-close">X</span>
+			<img src="assets/images/custome-logo.png" alt="CUSTOME LOGO">
+			<h3>Asi va tu Camiseta:</h3>
+			<hr>
+			<p class="type"></p>
+			<p class="color"></p>
+			<p class="design-name"></p>
+			<div class="design-img"></div>
+			<p class="size"></p>
+			<p class="vinil-color"></p>
+			<label for="">Talla :</label>
+			<select id="size" name="">
+				<option value="s">S</option>
+				<option value="m">M</option>
+				<option value="l">L</option>
+				<option value="xl">XL</option>
+				<option value="xxl">XXL</option>
+			</select>
+			<hr>
+			<p>Comparte este link con amigos!</p>
+			<input class="url" type="text" value="" readonly>
+			<button id="copy-clip" class="btn-order" onclick="copyToClipBoard()">Copiar <i class="fas fa-clipboard"></i></button>
+			<p>Revisar carrito <i class="fas fa-shopping-cart"></i></p>
+			<button id="cart" class="btn-order" onclick="addToCar(BeforeOrder)">Añadir al carrito <i class="fas fa-cart-plus"></i></button>
+			<button id="send-order" class="btn-order" onclick="sendOrder(cart)">Hacer Pedido <i class="fas fa-shopping-cart"></i></button>
+		</div>
+		<div id="choose-couple">
+			<span class="one active-couple">1</i></span>
+			<span class="two">2</span>
+			<span class="both">AMBOS</span>
+		</div>
+		<div class="options">
+			<span>Opciones</span>
+			<ul>
+				<li><a href="#" class="option-terms" href=""><i class="fas fa-question-circle"></i></a></li>
+				<li><a href="#" class="option-order" href=""><i class="fas fa-cart-plus"></i></a></li>
+				<li><a href="#" class="option-cart" href=""><i class="fas fa-shopping-cart"></i></a></li>
+			</ul>
+			<span>Colores</span>
+		</div>
+		<div id="colorPicker">
+			<ul>
+				<li class="active-color" data-clr="ffffff" style="background: #ffffff;" onclick="changeColor('0xffffff', event)" disabled="disabled">A01</li>
+				<li data-clr="ee8582" style="background: #ee8582;" onclick="changeColor('0xee8582',event)">A02</li>
+				<li data-clr="6c716d" style="background: #6c716d;" onclick="changeColor('0x6c716d',event)">A03</li>
+				<li data-clr="dea8b1" style="background: #dea8b1;" onclick="changeColor('0xdea8b1',event)">A04</li>
+				<li data-clr="80122f" style="background: #80122f;" onclick="changeColor('0x80122f',event)">A05</li>
+				<li data-clr="0b0e17" style="background: #0b0e17;color:#fff" onclick="changeColor('0x0b0e17',event)">A06</li>
+				<li data-clr="f0557f" style="background: #f0557f;" onclick="changeColor('0xf0557f',event)">A07</li>
+				<li data-clr="f0de7b" style="background: #f0de7b;" onclick="changeColor('0xf0de7b',event)">A08</li>
+				<li data-clr="131311" style="background: #131311;color:#fff" onclick="changeColor('0x131311',event)">A09</li>
+				<li data-clr="5dabb5" style="background: #5dabb5;" onclick="changeColor('0x5dabb5',event)">A10</li>
+				<li data-clr="750712" style="background: #750712;color:#fff" onclick="changeColor('0x750712',event)">A11</li>
+				<li data-clr="26060a" style="background: #26060a;color:#fff" onclick="changeColor('0x26060a',event)">A12</li>
+				<li data-clr="a35167" style="background: #a35167;" onclick="changeColor('0xa35167',event)">A13</li>
+				<li data-clr="54b68c" style="background: #54b68c;" onclick="changeColor('0x54b68c',event)">A14</li>
+				<li data-clr="030408" style="background: #030408;color:#fff" onclick="changeColor('0x030408',event)">A15</li>
+				<li data-clr="071e4e" style="background: #071e4e;color:#fff" onclick="changeColor('0x071e4e',event)">A16</li>
+				<li data-clr="dddddd" style="background: #dddddd;" onclick="changeColor('0xdddddd',event)">A17</li>
+				<li data-clr="0c0e0b" style="background: #0c0e0b;color:#fff" onclick="changeColor('0x0c0e0b',event)">A18</li>
+			</ul>
+		</div>
+		<!-- Modal métodos de pago -->
+		<div class="lightbox" id="modal-metodos">
+			<div class="content-lightbox">
+				<img src="assets/images/custome-logo.png" alt="CUSTOME LOGO">
+				<h2>Métodos de pago</h2>
+				<p>Los siguientes métodos de pago estan habilitados en este momento</p>
+				<ul>
+					<li>DAVIPLATA</li>
+					<li>AHORRO A LA MANO</li>
+					<li>NEQUI</li>
+				</ul>
+				<p>Todas las cuentas son certificadas antes de realizar el pago previamente debes haber hablado con nuestro asesor quien te guíara en el proceso.</p>
+				<a href="#_" class="close">X</a>
+			</div>
+		</div>
+		<!-- Modal personalizar -->
+		<div class="lightbox" id="modal-l">
+			<div class="content-lightbox">
+				<ul id="menu-canvas-editor">
+					<li class="menu-content-active fas fa-font" onclick="changeContent('text',this)"></li>
+					<li class="fas fa-image" onclick="changeContent('upload-img',this)"></li>
+					<li class="fas fa-images" onclick="changeContent('designs-svg',this)"></li>
+				</ul>
+				<canvas id="canvas" width="256" height="256"></canvas>
+				
+				<div class="font-bubble">
+					<p>Elegir fuente</p>
+					<ul>
+						<li onclick="fontCanvasText('Open Sans')">Open Sans</li>
+						<li onclick="fontCanvasText('Roboto')">Roboto</li>
+						<li onclick="fontCanvasText('Anton')">Anton</li>
+					</ul>
+				</div>
+				<div class="text content-active">
+					<textarea type="text" onkeyup="editCanvasText(this.value)" onkeydown="editCanvasText(this.value)" ontouchstart="editCanvasText(this.value)" class="input-text-canvas" placeholder="Escribe tu texto aqui"></textarea>
+					<!-- <input type="text" class="text-input"> -->
+					<span class="add-text" onclick="addCanvasText()"><i class="fas fa-plus-circle"></i></span>
+					<span class="color-text" ><input type="text" name="UNIQUE_NAME"/></span>
+					<span class="font-text"><i class="fas fa-font"></i></span>
+					<span class="text-align-canvas" onclick="textAlign('left')"><i class="fas fa-align-left"></i></span>
+					<span class="text-align-canvas" onclick="textAlign('center')"><i class="fas fa-align-center"></i></span>
+					<span class="text-align-canvas" onclick="textAlign('right')"><i class="fas fa-align-right"></i></span>
+				</div>
+				<div class="upload-img">
+					<input type="file" id="imageLoader" class="inputfile file" name="imageLoader" accept="image/*"/>
+					<label for="imageLoader">
+						<span></span>
+						<strong>
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+								<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+							</svg>
+							Elegir imágen...
+						</strong>
+					</label>
+				</div>
+				<div class="designs-svg">
+					<span class="add-text" onclick="addShape('design-01','#ffba99')">DISEÑO 1</span>
+					<span class="add-text" onclick="addShape('design-02','#ffba00')">DISEÑO 2</span>
+				</div>
+				<div class="order-element">
+					<p>Ordenar elementos</p>
+					<button id="send-backwards" class="" onclick="sendBackwards()"><i class="fas fa-angle-up"></i></button>
+					<button id="send-to-back" class="" onclick="sendToBack()"><i class="fas fa-angle-double-up"></i></button>
+         			<button id="bring-forward" class="" onclick="bringForward()"><i class="fas fa-angle-down"></i></button>
+          			<button id="bring-to-front" class="" onclick="bringToFront()"><i class="fas fa-angle-double-down"></i></button>
+				</div>
+				<button onclick="applyImage()">Aplicar <i class="fas fa-check"></i></button>
+				<button onclick="deleteElemCanvas()">Borrar Elemento <i class="fas fa-trash-alt"></i></button>
+				<a href="#_" class="close">X</a>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<!-- <script src="https://threejs.org/build/three.min.js"></script> -->
+		<script src="build/three.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.22/fabric.min.js"></script>
+		<script src="assets/js/tween.min.js"></script>
+		<script src="assets/js/palette-color-picker.js"></script>
+		<script src="assets/js/controls/OrbitControls.js"></script>
+		<script src="assets/js/controls/TrackballControls.js"></script>
+		<script src="assets/js/loaders/DDSLoader.js"></script>
+		<script src="assets/js/loaders/ColladaLoader.js"></script>
+		<script src="assets/js/loaders/OBJLoader.js"></script>
+		<script src="assets/js/loaders/MTLLoader.js"></script>
+		<script src="assets/js/stats.min.js"></script>
+		<!-- <script src="assets/js/curvedtext.js"></script> -->
+		<script src="assets/js/editor-custom-designs-controls.js"></script>
+		<script src="assets/js/editor.js"></script>
+	</body>
+</html>
