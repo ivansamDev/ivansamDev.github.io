@@ -285,7 +285,7 @@ container;
 			sprite.position.set( 0, -50, 140 );
 			sprite.scale.set( 100, 100, 100 );
 			scene.add( sprite );
-			getColors();
+			// getColors();
 			// getDesigns();
 		}
 		// Called get params
