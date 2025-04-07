@@ -105,7 +105,7 @@ container;
 		var t = GetURLParameter('t');
 		var idClr = GetURLParameter('idclr');
 		var vnl = GetURLParameter('vnl');
-		var globalUrl = 'https://www.datalanding.tech/samucato/index.html'
+		var globalUrl = 'https://ivansamdev.github.io/'
 		var urlGenerate = '';
 		var bgLoader = new THREE.TextureLoader();
 		//INIT THREE JS, SCREEN AND MOUSE EVENTS
